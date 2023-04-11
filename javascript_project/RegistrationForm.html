@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>form</title>
+<style>
+h1{
+color:white;
+background-color:green ;
+padding:5px;
+}
+body{
+background-image:url("Image1.jpg");
+}
+
+</style>
+</head>
+<script>
+
+
+
+function validateForm() {
+
+    var pw1 = document.getElementById("pswd1").value;
+    var pw2 = document.getElementById("pswd2").value;
+    var name1 = document.getElementById("fname").value;
+    var name2 = document.getElementById("lname").value;
+
+    if(name1 == "") {
+      document.getElementById("blankMsg").innerHTML = "**Fill the first name";
+      return false;
+    } 
+
+    if(!isNaN(name1)){
+      document.getElementById("blankMsg").innerHTML = "**Only characters are allowed";
+      return false;
+    }
+
+
+    if(!isNaN(name2)){
+      document.getElementById("charMsg").innerHTML = "**Only characters are allowed";
+      return false;
+    }
+
+
+    if(pw1 == "") {
+      document.getElementById("message1").innerHTML = "**Fill the password please!";
+      return false;
+    }
+
+
+    if(pw2 == "") {
+      document.getElementById("message2").innerHTML = "**Enter the password please!";
+      return false;
+    }
+
+
+    if(pw1.length < 8) {
+      document.getElementById("message1").innerHTML = "**Password length must be atleast 8 characters";
+      return false;
+    }
+
+
+    if(pw1.length > 15) {
+      document.getElementById("message1").innerHTML = "**Password length must not exceed 15 characters";
+      return false;
+    }
+
+    if(pw1 != pw2) {
+      document.getElementById("message2").innerHTML = "**Passwords are not same";
+      return false;
+    } else {
+      alert ("Account created successfully");
+      document.write("Registered successfully");
+    }
+ }
+</script>
+
+
+
+<center>
+  <body align ="center" bgcolor="#7787bd"><br><br><br>
+<h1 style="border:black;border-width:2px;border-style:solid">RegistrationForm</h1>
+
+<form onsubmit ="return validateForm()">
+
+
+<td> First Name&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+<input type = "text" id = "fname" value = ""> <br><br>
+
+
+<td> Last Name &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+<input type = "text" id = "lname" value = "">
+<span id = "charMsg" style="color:red"> </span> <br><br>
+<td>Email&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+<input type="email" id="email" value= ""><br><br>
+<td> Create Password*&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+
+<input type = "password" id = "pswd1" value = "">
+<span id = "message1" style="color:red"> </span><br><br>
+<td> Confirm Password*&nbsp&nbsp&nbsp </td>
+<input type = "password" id = "pswd2" value = "">
+<span id = "message2" style="color:red"> </span> <br><br>
+
+
+<input type = "submit" value = "Submit">
+
+<button type = "reset" value = "Reset" >Reset</button>
+
+
+</form>
+</body>
+</script>
+</html>
